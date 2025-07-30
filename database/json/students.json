@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Ali Raza",
+    "email": "ali@example.com",
+    "age": 22,
+    "city": 1
+  },
+  {
+    "name": "Fatima Khan",
+    "email": "fatima@example.com",
+    "age": 24,
+    "city": 2
+  },
+  {
+    "name": "Usman Javed",
+    "email": "usman@example.com",
+    "age": 21,
+    "city": 3
+  },
+  {
+    "name": "Hina Sheikh",
+    "email": "hina@example.com",
+    "age": 23,
+    "city": 4
+  },
+  {
+    "name": "Ahmad Bilal",
+    "email": "ahmad@example.com",
+    "age": 20,
+    "city": 5
+  },
+  {
+    "name": "Mehwish Ali",
+    "email": "mehwish@example.com",
+    "age": 25,
+    "city": 5
+  },
+  {
+    "name": "Zain Qureshi",
+    "email": "zain@example.com",
+    "age": 22,
+    "city": 4
+  },
+  {
+    "name": "Iqra Nadeem",
+    "email": "iqra@example.com",
+    "age": 23,
+    "city": 3
+  },
+  {
+    "name": "Raza Hussain",
+    "email": "raza@example.com",
+    "age": 24,
+    "city": 5
+  },
+  {
+    "name": "Nida Anwar",
+    "email": "nida@example.com",
+    "age": 22,
+    "city": 2
+  }
+]
