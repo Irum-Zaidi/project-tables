@@ -193,12 +193,12 @@ class StudentController extends Controller
 
         $students = DB::table('students')
             ->leftJoin('cities', function (JoinClause $join) {
-                $join->on('students.city', 'cities.id')
-                    ->where('students.name', 'like', 'a%');
+                $join->on('students.city', '=', 'cities.id');
             })
+            ->where('students.name', 'like', 'a%')
             ->select('students.*', 'cities.city_name')
             ->get();
-        // return $students;
-        return view('welcome', compact('students'));
+        return $students;
+        // return view('welcome', compact('students'));
     }
 }
