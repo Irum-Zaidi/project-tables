@@ -201,4 +201,175 @@ class StudentController extends Controller
         return $students;
         // return view('welcome', compact('students'));
     }
+
+    // public function uniondata() {
+    //     $lecturers = DB::table('lecturers');
+    //     $students = DB::table('students')
+    //     ->union($lecturers)
+    //     ->get();
+    //     return $students;
+    // }
+
+    // public function uniondata() {
+    //     $lecturers = DB::table('lecturers')
+    //     ->select('name','email');
+
+    //     $students = DB::table('students')
+    //     ->union($lecturers)
+    //     ->select('name','email')
+    //     ->get();
+    //     return $students;
+    // }
+
+    // public function uniondata() {
+
+    //     $lecturers = DB::table('lecturers')
+    //     ->select('name','email','city_name')
+    //     ->join('cities','lecturers.city', '=', 'cities.id');
+
+    //     $students = DB::table('students')
+    //     ->union($lecturers)
+    //     ->select('name','email','city_name')
+    //     ->join('cities','students.city', '=', 'cities.id')
+    //     ->get();
+    //     return $students;
+    // }
+
+    // public function uniondata() {
+
+    //     $lecturers = DB::table('lecturers')
+    //     ->select('name','email','city_name')
+    //     ->join('cities','lecturers.city', '=', 'cities.id');
+
+    //     $students = DB::table('students')
+    //     ->union($lecturers)
+    //     ->select('name','email','city_name')
+    //     ->join('cities','students.city', '=', 'cities.id')
+    //     ->toSql();
+    //     return $students;
+    // }
+
+
+    public function uniondata()
+    {
+
+        $lecturers = DB::table('lecturers')
+            ->select('name', 'email', 'city_name')
+            ->join('cities', 'lecturers.city', '=', 'cities.id')
+            ->where('city_name', '=', 'islamabad');
+
+        $students = DB::table('students')
+            ->union($lecturers)
+            ->select('name', 'email', 'city_name')
+            ->join('cities', 'students.city', '=', 'cities.id')
+            ->where('city_name', '=', 'lahore')
+            ->get();
+        return $students;
+    }
+    // public function whendata(){
+
+    //     $students = DB::table('students')
+    //     ->when(true, function($query){
+    //       $query->where('age','=','20');  
+    //     })
+    //     ->get();
+    //     return $students;
+    // }
+
+    // public function whendata(){
+
+    //     $students = DB::table('students')
+    //     ->when(false, function($query){
+    //       $query->where('age','=','20');  
+    //     })
+    //     ->get();
+    //     return $students;
+    // }
+
+    // public function whendata(){
+
+    //     $students = DB::table('students')
+    //     ->when(false, function($query){
+    //       $query->where('age','=','20');  
+    //     }, function($query){
+    //         $query->where('age','>','20');  
+    //     })
+    //     ->get();
+    //     return $students;
+    // }
+
+
+    // public function whendata()
+    // {
+
+
+    //     $students = DB::table('students')
+    //         ->when( function ($query) {
+    //             $query->where('age', '=', '20');
+    //         }, function ($query) {
+    //             $query->where('age', '>', '20');
+    //         })
+    //         ->get();
+    //     return $students;
+    // }
+    public function whendata()
+    {
+
+        $test = false;
+
+        $students = DB::table('students')
+            ->when($test, function ($query) {
+                $query->where('age', '=', '20');
+            }, function ($query) {
+                $query->where('age', '>', '20');
+            })
+            ->get();
+        return $students;
+    }
+
+    // public function chunkdata(){
+    //       $students = DB::table('students')
+    //       ->orderBy('id')->chunk(3, function($students) {
+    //         foreach($students as $student) {
+    //             echo $student->name . "<br>";
+    //         }
+    //       });
+
+    // }
+
+    // public function chunkdata()
+    // {
+    //     $students = DB::table('students')
+    //         ->orderBy('id')->chunk(3, function ($students) {
+    //             echo "<br><hr><br>";
+    //             foreach ($students as $student) {
+    //                 echo $student->name . "<br>";
+    //             }
+    //         });
+    // }
+
+
+    // public function chunkdata()
+    // {
+    //     $students = DB::table('students')
+    //         ->orderBy('id')->chunkById(2, function ($students) {
+    //             echo "<br><hr><br>";
+    //             foreach ($students as $student) {
+    //                 echo $student->name . "<br>";
+    //             }
+    //         });
+    // }
+
+    // public function chunkdata()
+    // {
+    //     $students = DB::table('students')
+    //         ->orderBy('id')->chunkById(2, function ($students) {
+
+    //             foreach ($students as $student) {
+    //                 DB::table('students')
+    //                 ->where('id' , $student->id)
+    //                 ->update(['status'=>true]);
+    //             }
+    //         });
+    // }
 }
