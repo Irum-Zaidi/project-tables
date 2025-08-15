@@ -62,11 +62,11 @@ class UserRequest extends FormRequest
     {
         // You can modify the request data before validation if needed
         // For example, you can trim whitespace from the name
-        $this->merge([
+        // $this->merge([
             // 'name' => trim($this->name),
             // 'name' => strtoupper($this->name),
-            'name' => Str::slug($this->name),
-        ]);
+            // 'name' => Str::slug($this->name),
+        // ]);
     }
 
     // protected $stopOnFirstFailure = true;
